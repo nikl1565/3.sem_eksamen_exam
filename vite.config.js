@@ -1,6 +1,8 @@
 const { resolve } = require("path");
+import { defineConfig } from "vite";
+import mkcert from "vite-plugin-mkcert";
 
-module.exports = {
+export default defineConfig({
     build: {
         rollupOptions: {
             input: {
@@ -10,4 +12,8 @@ module.exports = {
             },
         },
     },
-};
+    server: {
+        https: true,
+    },
+    plugins: [mkcert()],
+});
