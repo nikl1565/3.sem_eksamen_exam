@@ -1,0 +1,31 @@
+@use "../abstracts/vars";
+
+.logo {
+  position: absolute;
+  width: 80px;
+  height: 67px;
+  right: 30px;
+  top: 20px;
+  background: url(/logo_foobar.svg);
+}
+
+.home_logo {
+  position: absolute;
+  width: 80px;
+  height: 67px;
+  left: 30px;
+  top: 20px;
+  background: url(/logo_foobar.svg);
+}
+
+.help_logo {
+  display: none;
+  @media (min-width: 1000px) {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 300px;
+    top: 30px;
+  }
+}

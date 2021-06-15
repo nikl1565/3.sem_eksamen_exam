@@ -1,0 +1,87 @@
+@use "../abstracts/vars";
+
+#help_body {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  justify-content: center;
+  background: vars.$bg_color;
+  margin: 0;
+  z-index: 1;
+}
+.back {
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+#help_main {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  margin: 0 30px;
+
+  @media (min-width: 510px) {
+    // margin: 0 100px;
+  }
+  @media (min-width: 769px) {
+    top: 50%;
+    margin: 0 30px;
+  }
+
+  .help_element {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 50px 0;
+  }
+  .illustration {
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    @media (min-width: 768px) {
+      width: 130px;
+      height: 80px;
+    }
+    @media (min-width: 1024px) {
+      width: 180px;
+    }
+    .ill_bg {
+      width: 50px;
+      height: 50px;
+      border-radius: 100px;
+      position: absolute;
+      transform: translate(-18px, -15px);
+      @media (min-width: 768px) {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .sit_col {
+      background: vars.$yellow;
+    }
+    .order_col {
+      background: vars.$pink;
+    }
+    .wait_col {
+      background: vars.$light_green;
+    }
+    .beer_col {
+      background: vars.$beige;
+    }
+  }
+  img {
+    width: 40px;
+    position: absolute;
+    @media (min-width: 768px) {
+      width: 60px;
+      transform: translate(6px, 12px);
+    }
+  }
+}

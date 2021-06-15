@@ -1,0 +1,67 @@
+@use "../abstracts/vars";
+
+.menubar {
+  width: 100vw;
+  height: 65px;
+  position: fixed;
+  bottom: 0;
+  background: white;
+  box-shadow: 0 -7px 10px 0 rgb(0 0 0 / 5%);
+  z-index: 100;
+  @media (min-width: 1000px) {
+    display: none;
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .home_icon {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%);
+    border: none;
+    background: none;
+    padding: 0;
+  }
+  .basket_icon {
+    position: absolute;
+    left: 80%;
+    top: 15%;
+    transform: translate(-50%);
+    border: none;
+    background: none;
+    padding: 0;
+    .basket_number {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      padding: 1px 0px;
+      border-radius: 10px;
+      background: vars.$red;
+      color: white;
+    }
+  }
+  .help_icon {
+    position: absolute;
+    left: 20%;
+    top: 15%;
+    transform: translate(-50%);
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  .menubar_button_styling {
+    padding: 7px 7px;
+    border: 1px solid #f4f4f4;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #f4f4f4;
+    display: flex;
+  }
+}

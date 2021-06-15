@@ -1,0 +1,59 @@
+@use "../abstracts/vars";
+
+#beerlist_container {
+  margin-top: 20vh;
+  padding: 0 30px;
+  margin-bottom: 120px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  justify-items: center;
+  grid-gap: 25px;
+
+  @media screen and (min-width: 388px) {
+    justify-items: initial;
+  }
+
+  article {
+    position: relative;
+    max-width: 183px;
+
+    .tap_status {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: grey;
+      font-weight: 600;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+
+  .beer_image {
+    max-width: 150px;
+    height: auto;
+  }
+}
+
+.name_price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 500px) {
+  #beerlist_container {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-gap: 50px;
+    padding: 0 70px;
+  }
+}
+
+@media screen and (min-width: 930px) {
+  #beerlist_container {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-gap: 50px;
+    padding: 0 70px;
+  }
+}

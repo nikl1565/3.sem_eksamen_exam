@@ -1,0 +1,122 @@
+@use "../abstracts/vars";
+
+#process_body {
+  background: vars.$bg_color;
+  margin: 0;
+  #process_body_wrapper {
+    overflow: hidden;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+#process_main {
+  display: flex;
+  flex-direction: column;
+  //   justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  .percent {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+  .bg_circle_process {
+    position: absolute;
+    border-radius: 100%;
+    width: 661px;
+    height: 661px;
+    bottom: -450px;
+    right: -450px;
+    background: #ffda58;
+    z-index: -1;
+    @media (min-width: 768px) {
+      bottom: -400px;
+      right: -300px;
+    }
+    @media (min-width: 1024px) {
+      right: -200px;
+    }
+    @media (min-width: 1300px) {
+      width: 800px;
+      height: 800px;
+      bottom: -500px;
+    }
+  }
+  svg {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    circle {
+      width: 200px;
+      height: 200px;
+      fill: none;
+      stroke-width: 10;
+      //   stroke: blue;
+      transform: translate(15px, 15px);
+      stroke-dasharray: 530;
+      stroke-dashoffset: 530;
+      stroke-linecap: round;
+    }
+    circle:nth-child(1) {
+      stroke-dashoffset: 0;
+      stroke: vars.$ui_color_light;
+    }
+    circle:nth-child(2) {
+      stroke-dashoffset: calc(530px - (530px * 0) / 100);
+      stroke: vars.$ui_color_dark;
+      transform: rotate(270deg) translate(15px, 15px);
+      transform-origin: center;
+    }
+  }
+  .ill {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 7px;
+  }
+}
+
+.col {
+  animation: col 50s ease infinite;
+}
+
+@keyframes col {
+  0% {
+    background: #ff912d;
+  }
+  12% {
+    background: #ffda58;
+  }
+  22% {
+    background: #ace365;
+  }
+  32% {
+    background: #3ccb75;
+  }
+  42% {
+    background: #e072a4;
+  }
+  52% {
+    background: #e8d2ae;
+  }
+  62% {
+    background: #3454d1;
+  }
+  72% {
+    background: #75b2ff;
+  }
+  82% {
+    background: #f85229;
+  }
+  100% {
+    background: #ff912d;
+  }
+}

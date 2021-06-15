@@ -1,0 +1,31 @@
+@use "../abstracts/vars";
+:root {
+  --colored_bg: vars.$ui_color_light;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: vars.$bg_color;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden_fade {
+  transition: 0.5s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chosen {
+  background-color: vars.$ui_color_dark !important;
+  transform-origin: center;
+  // transform: scale(1.04) !important;
+  transition: 0.3s;
+  fill: white;
+}

@@ -1,0 +1,70 @@
+@use "../abstracts/vars";
+
+#form_body {
+  background: vars.$bg_color;
+  margin: 0;
+  form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h3 {
+      margin-bottom: 40px;
+    }
+    input {
+      border: 1px solid #eaeaea;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+      width: 300px;
+      height: 35px;
+      border-radius: 5px;
+      margin: 5px 0 20px;
+      padding: 0 10px;
+    }
+    .formgroup {
+      display: flex;
+      input {
+        width: 120px;
+      }
+      #cvv {
+        float: right;
+      }
+    }
+    label {
+      margin-left: 1.5px;
+      font-weight: 300;
+      color: vars.$ui_color_dark;
+    }
+    p {
+      margin-left: 1.5px;
+      padding: 20px 0;
+
+      display: flex;
+      justify-content: space-between;
+    }
+    .payment_amount {
+      margin-right: 1.5px;
+    }
+    div > div:nth-child(2) > label {
+      margin-left: 17px;
+    }
+  }
+}
+
+//validation
+
+#form_body {
+  input[type="text"]:valid {
+    outline: none;
+    box-shadow: 0 0 0 1px vars.$dark_green;
+  }
+  input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px vars.$ui_color_dark;
+  }
+  input::placeholder {
+    opacity: 0.4;
+  }
+}

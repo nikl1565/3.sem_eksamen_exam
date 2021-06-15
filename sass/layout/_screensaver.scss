@@ -1,0 +1,56 @@
+@use "../abstracts/vars";
+
+#screensaver {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  background: vars.$bg_color;
+  z-index: 1000;
+  > div {
+    width: 150px;
+    height: 150px;
+    border-radius: 200px;
+    background: #ff912d;
+    margin: 10px;
+  }
+
+  .bg {
+    position: absolute;
+    z-index: -1;
+    width: 210px;
+    height: 210px;
+    animation: bounce_bg 1.5s linear infinite alternate-reverse, col 50s ease infinite;
+    border-radius: 250px;
+    opacity: 0.2;
+    margin: auto;
+  }
+
+  @media (min-width: 700px) {
+    .col {
+      width: 250px;
+      height: 250px;
+    }
+    .bg {
+      width: 320px;
+      height: 320px;
+    }
+  }
+
+  h1 {
+    position: absolute;
+    @media (max-width: 800px) {
+      font-size: 2rem;
+    }
+  }
+
+  .col {
+    animation: col 50s ease infinite;
+  }
+}

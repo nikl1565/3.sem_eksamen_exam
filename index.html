@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Loading screen, css-package from loading.io */
+
+      .ld-ring {
+        width: 2em;
+        height: 2em;
+        position: absolute;
+        color: inherit;
+        z-index: 1100;
+        margin: auto;
+      }
+      .ld-ring:after {
+        content: " ";
+        display: block;
+        width: 4em;
+        height: 4em;
+        box-sizing: border-box;
+        transform-origin: 0em 0em;
+        transform: translateZ(0) scale(0.5);
+        backface-visibility: hidden;
+      }
+      .ld-ring:after {
+        border-radius: 50%;
+        border: 0.3em solid currentColor;
+        border-left-color: transparent;
+      }
+
+      .ld {
+        transform-origin: 50% 50%;
+        transform-box: fill-box;
+      }
+      @keyframes ld-cycle-alt {
+        0% {
+          animation-timing-function: cubic-bezier(0.3333, 0.3333, 0.6667, 0.6667);
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+      .ld.ld-cycle-alt {
+        animation: ld-cycle-alt 1s infinite linear;
+      }
+    </style>
+    <title>Home</title>
+    <link rel="shortcut icon" href="#" />
+  </head>
+
+  <body>
+    <header>
+      <div class="home_logo"></div>
+      <div class="help_logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+          <g data-name="Layer 2">
+            <g data-name="question-mark">
+              <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0" />
+              <path d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z" />
+              <circle cx="12" cy="19" r="1" />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <nav class="menubar">
+        <button class="help_icon menubar_button_styling">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="46" height="46">
+            <g data-name="Layer 2">
+              <g data-name="question-mark">
+                <path d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z" />
+                <circle cx="12" cy="19" r="1" />
+              </g>
+            </g>
+          </svg>
+        </button>
+        <button class="basket_icon menubar_button_styling">
+          <span class="basket_number hidden">0</span>
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background: new 0 0 24 24" xml:space="preserve" width="46" height="46">
+            <g>
+              <g>
+                <path
+                  class="st1"
+                  d="M21.1,7c-0.4-0.6-1-1-1.7-1H6.6L6,3.7C5.9,3.3,5.5,3,5,3H3C2.4,3,2,3.4,2,4s0.4,1,1,1h1.2L7,15.3
+			C7.1,15.7,7.5,16,8,16h9c0.4,0,0.7-0.2,0.9-0.6l3.3-6.6C21.5,8.3,21.4,7.6,21.1,7z M16.4,14H8.8L7.1,8h12.3L16.4,14z"
+                />
+                <circle class="st1" cx="7.5" cy="19.5" r="1.5" />
+                <circle class="st1" cx="17.5" cy="19.5" r="1.5" />
+              </g>
+            </g>
+          </svg>
+        </button>
+        <button class="home_icon menubar_button_styling chosen">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background: new 0 0 24 24" xml:space="preserve" width="46" height="46">
+            <g>
+              <g>
+                <path
+                  class="st1"
+                  d="M20.4,10.2l-7.7-7.9c-0.4-0.4-1-0.4-1.4,0c0,0,0,0,0,0l-7.7,7.9C3.2,10.6,3,11.1,3,11.6V20
+			c0,1.1,0.8,1.9,1.9,2h14.2c1.1-0.1,1.9-0.9,1.9-2v-8.4C21,11.1,20.8,10.6,20.4,10.2z M10,20v-6h4v6H10z M19,20h-3v-7
+			c0-0.6-0.4-1-1-1H9c-0.6,0-1,0.4-1,1v7H5v-8.4l7-7.2l7,7.2V20z"
+                />
+              </g>
+            </g>
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <section id="loading">
+        <div class="ld ld-cycle-alt ld-ring"></div>
+      </section>
+
+      <div class="beer_wrapper">
+        <section id="beerlist_container"></section>
+
+        <template>
+          <article class="template-article card">
+            <img class="beer_image" alt="beer image" width="160" height="216" />
+            <h4 class="beer_name"></h4>
+            <div class="name_price">
+              <p class="alc"></p>
+              <p class="price"></p>
+              <p class="tap_status">Not available</p>
+            </div>
+          </article>
+        </template>
+
+        <section id="basket">
+          <div class="your_order">
+            <h3>Your order</h3>
+            <div class="added_beers">
+              <p class="empty_basket">Your basket is empty</p>
+              <ul></ul>
+            </div>
+            <p class="total">Total: <span class="total_price">0,-</span></p>
+          </div>
+
+          <div class="payment">
+            <h3>Payment method</h3>
+            <!-- <p>Please select payment method</p> -->
+            <span class="pay_alert_message hidden">Please select payment method</span>
+            <span class="pay_alert_message hidden">Feature coming, please select another</span>
+            <span class="pay_alert_message hidden">Please select beers!</span>
+            <div class="payment_options">
+              <div>
+                <button class="payment_icon" data-payment="mobilepay" aria-label="mobilepay">
+                  <svg width="22" height="25" viewBox="0 0 22 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.6343 16.716C12.7092 16.0837 14.4646 15.7657 15.9006 15.7622C18.2746 15.7563 20.2649 16.2275 21.8717 17.1758V10.2798C20.2568 9.44364 18.4321 8.99729 16.3976 8.94076C14.3631 8.88423 12.442 9.29853 10.6343 10.1837V16.716Z"
+                        fill="#343331"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M7.26306 9.20783L9.82392 15.303V9.46158C11.1732 8.73913 12.6016 8.27614 14.1091 8.0726C15.6166 7.86907 17.3301 7.90188 19.2497 8.17105L17.8569 4.84357C15.8391 4.71328 13.9169 5.03833 12.0904 5.81872C10.2638 6.59911 8.6547 7.72881 7.26306 9.20783Z"
+                        fill="#343331"
+                      />
+                      <path
+                        d="M12.3336 4.88404C12.1099 4.34028 11.7743 3.52465 11.3269 2.43714C10.8561 1.29263 9.55214 0.745653 8.4145 1.21542L1.45209 4.09045C0.314449 4.56022 -0.226083 5.86885 0.244775 7.01335L6.94511 23.2998C7.41597 24.4443 8.71992 24.9912 9.85755 24.5215L16.82 21.6464C17.9576 21.1767 18.4981 19.868 18.0273 18.7235C17.6029 17.6921 17.3261 17.0191 17.1966 16.7044C16.8179 16.6823 16.5408 16.6691 16.3653 16.6646C16.18 16.66 15.916 16.6596 15.5732 16.6635C15.74 17.0689 16.1003 17.9446 16.654 19.2906C16.811 19.6721 16.6308 20.1083 16.2516 20.2649L9.28918 23.1399C8.90996 23.2965 8.47532 23.1142 8.31836 22.7327L1.61802 6.44629C1.46107 6.06479 1.64125 5.62858 2.02046 5.47199L8.98287 2.59696C9.36209 2.44037 9.79674 2.6227 9.95369 3.0042L10.9712 5.47745C11.2857 5.32373 11.5275 5.21294 11.6966 5.14507C11.8656 5.0772 12.078 4.99019 12.3336 4.88404Z"
+                        fill="#343331"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0">
+                        <rect width="22" height="24" fill="white" transform="translate(0 0.810852)" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+                <p>Mobilepay</p>
+              </div>
+              <div>
+                <button class="payment_icon" data-payment="card" aria-label="card">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M22.1667 5.83331H5.83337C4.90512 5.83331 4.01488 6.20206 3.3585 6.85844C2.70212 7.51482 2.33337 8.40506 2.33337 9.33331V18.6666C2.33337 19.5949 2.70212 20.4851 3.3585 21.1415C4.01488 21.7979 4.90512 22.1666 5.83337 22.1666H22.1667C23.095 22.1666 23.9852 21.7979 24.6416 21.1415C25.298 20.4851 25.6667 19.5949 25.6667 18.6666V9.33331C25.6667 8.40506 25.298 7.51482 24.6416 6.85844C23.9852 6.20206 23.095 5.83331 22.1667 5.83331ZM4.66671 9.33331C4.66671 9.02389 4.78962 8.72715 5.00842 8.50836C5.22721 8.28956 5.52396 8.16665 5.83337 8.16665H22.1667C22.4761 8.16665 22.7729 8.28956 22.9917 8.50836C23.2105 8.72715 23.3334 9.02389 23.3334 9.33331V10.5H4.66671V9.33331ZM23.3334 18.6666C23.3334 18.9761 23.2105 19.2728 22.9917 19.4916C22.7729 19.7104 22.4761 19.8333 22.1667 19.8333H5.83337C5.52396 19.8333 5.22721 19.7104 5.00842 19.4916C4.78962 19.2728 4.66671 18.9761 4.66671 18.6666V12.8333H23.3334V18.6666Z"
+                        fill="#343331"
+                      />
+                      <path
+                        d="M8.16667 17.5H12.8333C13.1428 17.5 13.4395 17.3771 13.6583 17.1583C13.8771 16.9395 14 16.6428 14 16.3334C14 16.0239 13.8771 15.7272 13.6583 15.5084C13.4395 15.2896 13.1428 15.1667 12.8333 15.1667H8.16667C7.85725 15.1667 7.5605 15.2896 7.34171 15.5084C7.12292 15.7272 7 16.0239 7 16.3334C7 16.6428 7.12292 16.9395 7.34171 17.1583C7.5605 17.3771 7.85725 17.5 8.16667 17.5Z"
+                        fill="#343331"
+                      />
+                      <path
+                        d="M17.5 17.5H19.8334C20.1428 17.5 20.4395 17.3771 20.6583 17.1583C20.8771 16.9395 21 16.6428 21 16.3334C21 16.0239 20.8771 15.7272 20.6583 15.5084C20.4395 15.2896 20.1428 15.1667 19.8334 15.1667H17.5C17.1906 15.1667 16.8939 15.2896 16.6751 15.5084C16.4563 15.7272 16.3334 16.0239 16.3334 16.3334C16.3334 16.6428 16.4563 16.9395 16.6751 17.1583C16.8939 17.3771 17.1906 17.5 17.5 17.5Z"
+                        fill="#343331"
+                      />
+                    </g>
+                  </svg>
+                </button>
+                <p>Credit card</p>
+              </div>
+              <div>
+                <button class="payment_icon" data-payment="contactless" aria-label="contactless">
+                  <svg width="21" height="28" viewBox="0 0 21 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M16.0915 27.3513C15.6645 27.2279 15.232 26.7197 15.1408 26.2349C15.0819 25.9191 15.1542 25.699 15.6067 24.8239C17.4369 21.2835 18.232 18.0267 18.232 14.0728C18.232 10.2522 17.527 7.27893 15.7791 3.71523C15.4032 2.95023 15.0952 2.23971 15.0952 2.13741C15.0952 1.75825 15.4132 1.20896 15.7568 0.993249C16.2283 0.697479 17.0177 0.753075 17.3947 1.10778C17.5403 1.24343 17.9173 1.86277 18.2342 2.48322C19.4851 4.94167 20.3424 7.63696 20.766 10.4434C21.0273 12.1803 21.0807 15.4715 20.8705 17.0616C20.4847 19.9948 19.7108 22.6112 18.471 25.1753C17.7216 26.7253 17.2512 27.3624 16.8576 27.3624C16.7787 27.3624 16.6508 27.3824 16.573 27.4069C16.494 27.4302 16.2783 27.4058 16.0915 27.3513ZM10.9989 24.6871C10.344 24.497 9.87144 23.6931 10.0605 23.0904C10.1061 22.9448 10.4152 22.2732 10.7454 21.5982C12.1475 18.7395 12.7302 15.6761 12.4444 12.6673C12.2098 10.1966 11.7673 8.63658 10.6509 6.35603C9.90257 4.82603 9.8681 4.58919 10.3029 3.97208C10.7165 3.38721 11.7495 3.29159 12.2921 3.78973C12.669 4.13442 13.8388 6.57842 14.2902 7.96164C15.7846 12.5405 15.5567 17.4552 13.6408 21.954C12.6601 24.2579 11.9719 24.9707 10.9989 24.6871ZM5.74622 21.9852C5.34148 21.8028 4.99345 21.3747 4.89894 20.9433C4.84112 20.6809 4.94008 20.3896 5.42043 19.4166C7.18504 15.844 7.20395 12.4026 5.47825 8.91345C4.72103 7.38122 4.70435 7.07545 5.34482 6.47167C5.66171 6.17257 5.79514 6.12031 6.23991 6.12031C6.98379 6.12031 7.37073 6.49502 8.03677 7.86157C9.05974 9.96421 9.47893 11.7889 9.4756 14.1261C9.47226 16.529 9.07975 18.178 7.98674 20.3951C7.35961 21.6649 7.0505 21.9996 6.42338 22.0863C6.23213 22.1119 5.92746 22.0663 5.74622 21.9852ZM0.845993 19.4678C0.524649 19.3355 0.158828 18.8996 0.0498595 18.5193C-0.0713396 18.0957 0.0276212 17.7599 0.509082 16.9682C1.12842 15.9497 1.27297 15.4037 1.27297 14.0728C1.27297 12.7418 1.12842 12.1958 0.509082 11.1773C0.298929 10.8326 0.0887767 10.419 0.0409641 10.2589C-0.159181 9.58727 0.400114 8.76445 1.15177 8.62435C1.78779 8.50426 2.22588 8.78891 2.81075 9.70291C4.50532 12.3482 4.50532 15.8818 2.80964 18.5049C2.21143 19.4311 1.54539 19.758 0.845993 19.4678Z"
+                      fill="#343331"
+                    />
+                  </svg>
+                </button>
+                <p>Contactless</p>
+              </div>
+            </div>
+
+            <button class="basket_pay">Order</button>
+          </div>
+        </section>
+      </div>
+
+      <section id="singleview">
+        <button class="back close_singleview"></button>
+        <article>
+          <div class="colored_bg">
+            <img class="sv_beer_image" alt="beer image" width="251" height="744" />
+          </div>
+          <div class="beer_information">
+            <div class="beer_intro">
+              <h1 class="sv_beer_name"></h1>
+              <p class="sv_alc"></p>
+              <p class="description"></p>
+              <p class="sv_price"></p>
+              <div class="beer_amount">
+                <div>
+                  <button class="plus_minus minus">-</button>
+                  <input type="text" value="1" disabled class="amount" />
+                  <button class="plus_minus plus">+</button>
+                </div>
+                <button class="add_beer">Add</button>
+              </div>
+            </div>
+
+            <div class="desc_wrapper">
+              <div class="description_tabs">
+                <button class="flavor_button chosen_desc" data-field="flavor">Flavor</button>
+                <button class="aroma_button" data-field="aroma">Aroma</button>
+                <button class="appearence_button" data-field="appearence">Appearence</button>
+                <button class="mouthfeel_button" data-field="mouthfeel">Mouthfeel</button>
+              </div>
+
+              <p class="aroma_desc hidden" data-field="aroma"></p>
+              <p class="appearence_desc hidden" data-field="appearence"></p>
+              <p class="flavor_desc" data-field="flavor"></p>
+              <p class="mouthfeel_desc hidden" data-field="mouthfeel"></p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="help_body">
+        <button class="back close_helpview" aria-label="back"></button>
+        <div id="help_main">
+          <div class="help_element">
+            <div class="illustration">
+              <div class="sit_col ill_bg"></div>
+              <img class="sit_down_ill" src="/dining-table-with-chairs-svgrepo-com.svg" alt="Sit down illustration" width="60" height="60" />
+            </div>
+            <h1>1 find a table</h1>
+          </div>
+          <div class="help_element">
+            <div class="illustration">
+              <div class="order_col ill_bg"></div>
+              <img class="order_ill" src="/tablet-svgrepo-com.svg" alt="Reciept illustration" width="60" height="60" />
+            </div>
+            <h1>2 order via tablet</h1>
+          </div>
+          <div class="help_element">
+            <div class="illustration">
+              <div class="wait_col ill_bg"></div>
+              <img class="wait_ill" src="/wait-svgrepo-com.svg" alt="Waiting illustration" width="60" height="60" />
+            </div>
+            <h1>3 wait for us</h1>
+          </div>
+          <div class="help_element">
+            <div class="illustration">
+              <div class="beer_col ill_bg"></div>
+              <img class="beer_ill" src="/beer-svgrepo-com.svg" alt="Beer illustration" width="60" height="60" />
+            </div>
+            <h1>4 enjoy your beer</h1>
+          </div>
+          <p class="help_text">Didn't find the answer you were looking for? Our bartenders are always ready to help and answer your questions.</p>
+        </div>
+      </section>
+
+      <section id="screensaver">
+        <div class="bg"></div>
+        <div class="col"></div>
+        <h1>TAP TO ORDER</h1>
+      </section>
+    </main>
+
+    <script type="module" src="/scripts/home/index.js"></script>
+  </body>
+</html>
