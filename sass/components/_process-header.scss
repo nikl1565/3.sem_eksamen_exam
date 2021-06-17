@@ -1,0 +1,27 @@
+.process-header {
+    padding: 1rem;
+}
+
+.process-navigation {
+    &__list {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+    }
+
+    &__link {
+        display: flex;
+    }
+
+    &__icon {
+        stroke: var(--svg-color);
+        fill: var(--svg-color);
+    }
+}
