@@ -22,3 +22,11 @@
     clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
     overflow: hidden !important;
 }
+
+.video-feed {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
