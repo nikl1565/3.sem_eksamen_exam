@@ -1,6 +1,6 @@
 const { resolve } = require("path");
+const fs = require("fs");
 import { defineConfig } from "vite";
-import mkcert from "vite-plugin-mkcert";
 
 export default defineConfig({
     build: {
@@ -13,7 +13,10 @@ export default defineConfig({
         },
     },
     server: {
-        https: true,
+        open: true,
+        https: {
+            key: fs.readFileSync("./localhost-key.pem"),
+            cert: fs.readFileSync("./localhost.pem"),
+        },
     },
-    plugins: [mkcert()],
 });
