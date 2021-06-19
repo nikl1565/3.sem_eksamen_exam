@@ -9,6 +9,7 @@ export default defineConfig({
                 index: resolve(__dirname, "index.html"),
                 form: resolve(__dirname, "form.html"),
                 process: resolve(__dirname, "process.html"),
+                selectTable: resolve(__dirname, "select-table.html"),
             },
         },
     },
