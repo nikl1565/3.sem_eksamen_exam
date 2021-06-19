@@ -12,6 +12,14 @@
     justify-content: center;
     align-items: center;
 
+    &__icon {
+        margin-bottom: 1rem;
+    }
+
+    &__subtitle {
+        margin-bottom: 3rem;
+    }
+
     &__button {
         height: 35px;
         padding: 0 3rem;

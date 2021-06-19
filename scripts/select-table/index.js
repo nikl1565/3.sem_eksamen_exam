@@ -59,13 +59,13 @@ function startQrScanner() {
 
 function qrCodeDetected(qrCode, qrScanner) {
     const tableList = settings.tables;
+    setTheme("light");
 
     // Check if qrCode is a table that exists in the list (settings)
     const isQrCodeATable = tableList.find((table) => table.qrId === qrCode);
 
     if (isQrCodeATable) {
         const tableNumber = isQrCodeATable.tableNumber;
-
         prepareModal(tableNumber, "success");
         console.log(`Your table number is: ${isQrCodeATable.tableNumber}`);
         qrScanner.stop();
@@ -101,4 +101,8 @@ function showScanner() {}
 
 function goToNextPage() {
     window.location.href = "form.html";
+}
+
+function setTheme(state) {
+    document.documentElement.setAttribute("data-theme", state);
 }
