@@ -1,6 +1,6 @@
 import "../../sass/index.scss";
 import QrScanner from "qr-scanner";
-QrScanner.WORKER_PATH = "../../node_modules/qr-scanner/qr-scanner-worker.min.js";
+QrScanner.WORKER_PATH = "scripts/qr-scanner-worker.min.js";
 
 const settings = {
     videoElement: document.querySelector("video"),
