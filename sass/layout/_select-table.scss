@@ -1,9 +1,11 @@
 :root[data-theme="light"] {
     --svg-color: #333;
+    --text-color: #333;
 }
 
 :root[data-theme="dark"] {
     --svg-color: #fff;
+    --text-color: #fff;
 }
 
 .container {
@@ -29,4 +31,36 @@
     height: 100vh;
     object-fit: cover;
     z-index: -1;
+    background-image: url("../../dummy-video.jpg");
+    background-size: cover;
+    background-position: center center;
+    filter: blur(4px);
+}
+
+.qr-scanner {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__title {
+        color: var(--text-color);
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1.125rem;
+    }
+
+    &__subtitle {
+        color: var(--text-color);
+    }
+
+    &__icon {
+        fill: var(--svg-color);
+        stroke: var(--svg-color);
+    }
+
+    &__manual-link {
+    }
 }

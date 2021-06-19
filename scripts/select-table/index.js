@@ -4,10 +4,10 @@ QrScanner.WORKER_PATH = "../../node_modules/qr-scanner/qr-scanner-worker.min.js"
 
 // Webcam / Camera scan
 
-const videoElement = document.querySelector("video");
+// const videoElement = document.querySelector("video");
 
-const qrScanner = new QrScanner(videoElement, (result) => console.log("decoded qr code:", result));
-qrScanner.start();
+// const qrScanner = new QrScanner(videoElement, (result) => console.log("decoded qr code:", result));
+// qrScanner.start();
 
 // // Image scan
 // const image = "../../qr-test.png";
