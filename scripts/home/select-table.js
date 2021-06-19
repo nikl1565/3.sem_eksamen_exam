@@ -1,4 +1,4 @@
-import "../../sass/index.scss";
+import IMask from "imask";
 import QrScanner from "qr-scanner";
 QrScanner.WORKER_PATH = "scripts/qr-scanner-worker.min.js";
 
@@ -43,13 +43,7 @@ const settings = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", start);
-
-function start() {
-    startQrScanner();
-}
-
-function startQrScanner() {
+export function startQrScanner() {
     // Grab video element where the camera / video feed is going to be
     const videoElement = document.querySelector("video");
     // Create new QrScanner
