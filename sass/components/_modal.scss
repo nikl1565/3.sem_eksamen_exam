@@ -1,0 +1,23 @@
+@use "../abstracts/vars";
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__button {
+        height: 35px;
+        padding: 0 3rem;
+        background: vars.$ui_color_dark;
+        border-radius: 5px;
+        border: none;
+        cursor: button;
+    }
+}

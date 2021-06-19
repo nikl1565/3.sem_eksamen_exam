@@ -64,20 +64,41 @@ function qrCodeDetected(qrCode, qrScanner) {
     const isQrCodeATable = tableList.find((table) => table.qrId === qrCode);
 
     if (isQrCodeATable) {
-        prepareModal("success");
+        const tableNumber = isQrCodeATable.tableNumber;
+
+        prepareModal(tableNumber, "success");
         console.log(`Your table number is: ${isQrCodeATable.tableNumber}`);
         qrScanner.stop();
         return;
     }
 
-    prepareModal("error");
+    prepareModal(null, "error");
 }
 
-function prepareModal(status) {
+async function prepareModal(tableNumber, status) {
     const modal = settings.modal.template.content.cloneNode(true);
     const text = settings.modal[status];
+    const { title, subtitle, button, icon } = text;
 
-    modal.querySelector("modal__button").textContent = text.button;
+    modal.querySelector(".modal__icon").src = icon;
+    modal.querySelector(".modal__icon").alt = `${status} icon`;
+    modal.querySelector(".modal__title").textContent = title;
+    modal.querySelector(".modal__subtitle").textContent = subtitle;
+    if (status === "success") {
+        modal.querySelector(".modal__subtitle").textContent = `${subtitle} #${tableNumber}`;
+        modal.querySelector(".modal__button").addEventListener("click", goToNextPage);
+    } else {
+        modal.querySelector(".modal__subtitle").textContent = subtitle;
+        modal.querySelector(".modal__button").addEventListener("click", showScanner);
+    }
+    modal.querySelector(".modal__button").textContent = button;
 
-    console.log(modal);
+    // Show on screen
+    document.querySelector("body").append(modal);
+}
+
+function showScanner() {}
+
+function goToNextPage() {
+    window.location.href = "form.html";
 }
