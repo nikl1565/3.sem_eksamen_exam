@@ -175,7 +175,10 @@
     &__top-content {
         display: flex;
         align-items: center;
+        justify-content: center;
+        text-align: center;
         flex-direction: column;
+        padding: 3rem 0;
     }
 
     &__bottom-content {

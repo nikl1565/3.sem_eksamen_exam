@@ -25,6 +25,7 @@ async function init() {
     } else {
         startBasketAnimation();
         startStaggerAnimation();
+        document.querySelector(".menubar").classList.remove("is-hidden");
     }
 
     removeLoader();

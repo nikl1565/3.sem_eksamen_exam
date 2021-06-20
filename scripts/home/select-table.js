@@ -87,6 +87,7 @@ function showModal() {
 
 function qrCodeDetected(qrCode, qrScanner) {
     const tableList = settings.tables;
+    console.log("qrCode: ", qrCode);
     setTheme("light");
     qrScanner.stop();
     // Check if qrCode is a table that exists in the list (settings)
@@ -147,6 +148,7 @@ async function prepareModal(tableNumber, status) {
     function isSuccess() {
         hideModal();
         showHome();
+        document.querySelector(".menubar").classList.remove("is-hidden");
     }
 
     function hideModal() {
