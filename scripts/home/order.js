@@ -14,7 +14,7 @@ export const basket = {
 };
 
 export function pressingOrder() {
-    localStorage.clear();
+    localStorage.removeItem("itemsArray");
     console.log(localStorage);
 
     document.querySelectorAll(".pay_alert_message").forEach((msg) => {
@@ -30,7 +30,7 @@ export function pressingOrder() {
             document.querySelector(".pay_alert_message:nth-child(3)").classList.remove("hidden");
         } else if (paymentMethod.card) {
             findBasketItems();
-            window.location.href = "select-table.html";
+            window.location.href = "form.html";
         }
     });
 }

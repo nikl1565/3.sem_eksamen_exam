@@ -15,6 +15,20 @@
     --text-color: #fff;
     --text-color-dark: hsl(360, 50%, 100%);
 }
+.welcome {
+    &__table {
+        background-color: #333;
+        display: inline-flex;
+        padding: 0.25rem;
+        border-radius: 10px;
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+    }
+
+    &__icon {
+        fill: #fff;
+    }
+}
 
 .scanner-title {
     font-family: "Poppins", sans-serif;
@@ -22,6 +36,7 @@
     text-transform: uppercase;
     font-size: var(--table-title-size);
     line-height: normal;
+    color: #333;
 }
 
 .scanner-subtitle {
@@ -88,7 +103,7 @@
     }
 
     &__subtitle {
-        color: var(--text-color);
+        color: var(--text-color-dark);
         font-size: var(--table-subtitle-size);
         text-transform: none;
         line-height: normal;
@@ -118,6 +133,9 @@
     color: var(--text-color-dark);
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
+    background-color: transparent;
+    border: 0;
+    text-decoration: underline;
 }
 
 .overlay {

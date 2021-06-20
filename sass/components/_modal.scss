@@ -12,6 +12,10 @@
     justify-content: center;
     align-items: center;
 
+    &.is-hidden {
+        display: none;
+    }
+
     &__icon {
         margin-bottom: 1rem;
     }
