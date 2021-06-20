@@ -1,8 +1,10 @@
 import IMask from "imask";
 import QrScanner from "qr-scanner";
 QrScanner.WORKER_PATH = "scripts/qr-scanner-worker.min.js";
+QrScanner.DEFAULT_CANVAS_SIZE = 220;
 
 const settings = {
+    qrScanner: document.querySelector(".qr-scanner"),
     videoElement: document.querySelector("video"),
     tables: [
         {
@@ -32,7 +34,6 @@ const settings = {
             icon: "modal-success-icon.svg",
             title: "Success",
             subtitle: "Your table is",
-            button: "Go to payment",
         },
         error: {
             icon: "modal-error-icon.svg",
@@ -46,9 +47,14 @@ const settings = {
 export function startQrScanner() {
     // Grab video element where the camera / video feed is going to be
     const videoElement = document.querySelector("video");
+
+    videoElement.addEventListener("playing", console.log("lol"));
+
     // Create new QrScanner
     const qrScanner = new QrScanner(videoElement, (result) => qrCodeDetected(result, qrScanner));
     qrScanner.start();
+
+    settings.qrScanner.classList.remove("is-hidden");
 }
 
 function qrCodeDetected(qrCode, qrScanner) {
@@ -62,6 +68,7 @@ function qrCodeDetected(qrCode, qrScanner) {
         const tableNumber = isQrCodeATable.tableNumber;
         prepareModal(tableNumber, "success");
         console.log(`Your table number is: ${isQrCodeATable.tableNumber}`);
+        setTableNumberStorage(tableNumber);
         qrScanner.stop();
         return;
     }
@@ -80,23 +87,29 @@ async function prepareModal(tableNumber, status) {
     modal.querySelector(".modal__subtitle").textContent = subtitle;
     if (status === "success") {
         modal.querySelector(".modal__subtitle").textContent = `${subtitle} #${tableNumber}`;
-        modal.querySelector(".modal__button").addEventListener("click", goToNextPage);
+        modal.querySelector(".modal__button").remove();
     } else {
         modal.querySelector(".modal__subtitle").textContent = subtitle;
-        modal.querySelector(".modal__button").addEventListener("click", showScanner);
+        modal.querySelector(".modal__button").addEventListener("click", showModal);
+        modal.querySelector(".modal__button").textContent = button;
     }
-    modal.querySelector(".modal__button").textContent = button;
 
     // Show on screen
     document.querySelector("body").append(modal);
-}
 
-function showScanner() {}
-
-function goToNextPage() {
-    window.location.href = "form.html";
+    function showModal() {
+        modal.querySelector(".modal__button").removeEventListener("click", showModal);
+    }
 }
 
 function setTheme(state) {
     document.documentElement.setAttribute("data-theme", state);
+}
+
+export function getTableNumberStorage() {
+    return localStorage.getItem("tableNumber");
+}
+
+function setTableNumberStorage(tableNumber) {
+    localStorage.setItem("tableNumber", tableNumber);
 }

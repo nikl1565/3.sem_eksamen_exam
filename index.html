@@ -52,9 +52,14 @@
     </head>
 
     <body>
-        <header>
-            <div class="home_logo"></div>
-            <div class="help_logo">
+        <header class="header">
+            <img class="header__logo" src="./logo_foobar.svg" alt="FooBar logo" />
+            <div class="header__user welcome js-welcome">
+                <h1 class="welcome__title">Welcome! Your table is</h1>
+                <span class="welcome__table-number">#4</span>
+                <button class="welcome__button">Change table</button>
+            </div>
+            <div class="header__help-button help_logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
                     <g data-name="Layer 2">
                         <g data-name="question-mark">
@@ -67,75 +72,75 @@
                     </g>
                 </svg>
             </div>
-            <nav class="menubar">
-                <button class="help_icon menubar_button_styling">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="46" height="46">
-                        <g data-name="Layer 2">
-                            <g data-name="question-mark">
-                                <path
-                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z"
-                                />
-                                <circle cx="12" cy="19" r="1" />
-                            </g>
-                        </g>
-                    </svg>
-                </button>
-                <button class="basket_icon menubar_button_styling">
-                    <span class="basket_number hidden">0</span>
-                    <svg
-                        version="1.1"
-                        id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 24 24"
-                        style="enable-background: new 0 0 24 24"
-                        xml:space="preserve"
-                        width="46"
-                        height="46"
-                    >
-                        <g>
-                            <g>
-                                <path
-                                    class="st1"
-                                    d="M21.1,7c-0.4-0.6-1-1-1.7-1H6.6L6,3.7C5.9,3.3,5.5,3,5,3H3C2.4,3,2,3.4,2,4s0.4,1,1,1h1.2L7,15.3
-			C7.1,15.7,7.5,16,8,16h9c0.4,0,0.7-0.2,0.9-0.6l3.3-6.6C21.5,8.3,21.4,7.6,21.1,7z M16.4,14H8.8L7.1,8h12.3L16.4,14z"
-                                />
-                                <circle class="st1" cx="7.5" cy="19.5" r="1.5" />
-                                <circle class="st1" cx="17.5" cy="19.5" r="1.5" />
-                            </g>
-                        </g>
-                    </svg>
-                </button>
-                <button class="home_icon menubar_button_styling chosen">
-                    <svg
-                        version="1.1"
-                        id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 24 24"
-                        style="enable-background: new 0 0 24 24"
-                        xml:space="preserve"
-                        width="46"
-                        height="46"
-                    >
-                        <g>
-                            <g>
-                                <path
-                                    class="st1"
-                                    d="M20.4,10.2l-7.7-7.9c-0.4-0.4-1-0.4-1.4,0c0,0,0,0,0,0l-7.7,7.9C3.2,10.6,3,11.1,3,11.6V20
-			c0,1.1,0.8,1.9,1.9,2h14.2c1.1-0.1,1.9-0.9,1.9-2v-8.4C21,11.1,20.8,10.6,20.4,10.2z M10,20v-6h4v6H10z M19,20h-3v-7
-			c0-0.6-0.4-1-1-1H9c-0.6,0-1,0.4-1,1v7H5v-8.4l7-7.2l7,7.2V20z"
-                                />
-                            </g>
-                        </g>
-                    </svg>
-                </button>
-            </nav>
         </header>
+        <nav class="menubar">
+            <button class="help_icon menubar_button_styling">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="46" height="46">
+                    <g data-name="Layer 2">
+                        <g data-name="question-mark">
+                            <path
+                                d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z"
+                            />
+                            <circle cx="12" cy="19" r="1" />
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <button class="basket_icon menubar_button_styling">
+                <span class="basket_number hidden">0</span>
+                <svg
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 24 24"
+                    style="enable-background: new 0 0 24 24"
+                    xml:space="preserve"
+                    width="46"
+                    height="46"
+                >
+                    <g>
+                        <g>
+                            <path
+                                class="st1"
+                                d="M21.1,7c-0.4-0.6-1-1-1.7-1H6.6L6,3.7C5.9,3.3,5.5,3,5,3H3C2.4,3,2,3.4,2,4s0.4,1,1,1h1.2L7,15.3
+C7.1,15.7,7.5,16,8,16h9c0.4,0,0.7-0.2,0.9-0.6l3.3-6.6C21.5,8.3,21.4,7.6,21.1,7z M16.4,14H8.8L7.1,8h12.3L16.4,14z"
+                            />
+                            <circle class="st1" cx="7.5" cy="19.5" r="1.5" />
+                            <circle class="st1" cx="17.5" cy="19.5" r="1.5" />
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <button class="home_icon menubar_button_styling chosen">
+                <svg
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 24 24"
+                    style="enable-background: new 0 0 24 24"
+                    xml:space="preserve"
+                    width="46"
+                    height="46"
+                >
+                    <g>
+                        <g>
+                            <path
+                                class="st1"
+                                d="M20.4,10.2l-7.7-7.9c-0.4-0.4-1-0.4-1.4,0c0,0,0,0,0,0l-7.7,7.9C3.2,10.6,3,11.1,3,11.6V20
+c0,1.1,0.8,1.9,1.9,2h14.2c1.1-0.1,1.9-0.9,1.9-2v-8.4C21,11.1,20.8,10.6,20.4,10.2z M10,20v-6h4v6H10z M19,20h-3v-7
+c0-0.6-0.4-1-1-1H9c-0.6,0-1,0.4-1,1v7H5v-8.4l7-7.2l7,7.2V20z"
+                            />
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </nav>
         <main>
             <section id="loading">
                 <div class="ld ld-cycle-alt ld-ring"></div>
@@ -369,7 +374,7 @@
             </section>
         </main>
 
-        <section class="qr-scanner">
+        <section class="qr-scanner is-hidden">
             <video class="video-feed"></video>
             <div class="overlay">
                 <div class="overlay__scanner">
@@ -457,14 +462,14 @@
                     <div class="container">
                         <div class="overlay__top-content">
                             <h1 class="qr-scanner__title">Welcome to FooBar</h1>
-                            <h2 class="qr-scanner__subtitle">Scan the QR code on your table</h2>
+                            <h2 class="qr-scanner__subtitle">Scan the QR code on your table to begin ordering beer</h2>
                         </div>
                     </div>
                 </div>
                 <div class="overlay__shadow-right"></div>
                 <div class="overlay__shadow-bottom">
                     <div class="overlay__bottom-content">
-                        <a class="manually-link" href="#">Enter manually</a>
+                        <a class="manually-link" href="#">Enter code manually</a>
                     </div>
                 </div>
                 <div class="overlay__shadow-left"></div>

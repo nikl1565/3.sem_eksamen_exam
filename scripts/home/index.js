@@ -1,5 +1,5 @@
 import "../../sass/index.scss";
-import { startQrScanner } from "./select-table";
+import { startQrScanner, getTableNumberStorage } from "./select-table";
 import { addEventListenerToScreensaver } from "./screensaver";
 import { getPaymentMethod } from "./payment_method";
 import { pressingOrder, basket } from "./order";
@@ -8,17 +8,25 @@ import { setColorsOfBeer, setColorOfBackButton } from "./colors";
 import { addEventListenerToButtons } from "./buttons";
 import { removeLoader } from "./loader";
 import { getTapData, available } from "./tapstatus";
-import { animationOnPages } from "./animation";
+import { animationOnPages, startStaggerAnimation, startBasketAnimation } from "./animation";
 
 let count = document.querySelector(".amount").value;
 
 window.addEventListener("load", init);
 
-function init() {
+async function init() {
     addEventListenerToScreensaver();
-    getData();
+    await getData();
     addEventListenerToButtons();
-    startQrScanner();
+
+    const hasTable = getTableNumberStorage();
+    if (!hasTable) {
+        startQrScanner();
+    } else {
+        startBasketAnimation();
+        startStaggerAnimation();
+    }
+
     removeLoader();
 }
 
